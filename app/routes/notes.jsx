@@ -9,6 +9,10 @@ const NotesPage = () => {
 }
 export default NotesPage
 
+export function action() {
+   
+}
+
 export function links() {
    return [...newNoteLinks()]
 }

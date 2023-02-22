@@ -1,5 +1,6 @@
 import { redirect } from "@remix-run/node"
 import NewNote, { links as newNoteLinks } from "~/components/NewNote"
+import NoteList, { links as noteListLinks } from "~/components/NoteList"
 import { getStoredNotes, storeNotes } from "~/data/notes"
 
 const NotesPage = () => {
@@ -22,5 +23,5 @@ export async function action({ request }) {
 }
 
 export function links() {
-   return [...newNoteLinks()]
+   return [...newNoteLinks(), ...noteListLinks()]
 }

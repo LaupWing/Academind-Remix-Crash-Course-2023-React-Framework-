@@ -7,6 +7,7 @@ const NotesPage = () => {
    return (
       <main>
          <NewNote />
+         <NoteList />
       </main>
    )
 }

@@ -1,4 +1,6 @@
+import { redirect } from "@remix-run/node"
 import NewNote, { links as newNoteLinks } from "~/components/NewNote"
+import { getStoredNotes, storeNotes } from "~/data/notes"
 
 const NotesPage = () => {
    return (
@@ -9,8 +11,14 @@ const NotesPage = () => {
 }
 export default NotesPage
 
-export function action() {
-   
+export async function action({ request }) {
+   const formData = await request.formData()
+   const noteDate = Object.entries(formData)
+   const existingNotes = await getStoredNotes()
+   noteDate.id = new Date().toISOString()
+   const updatedNotes = existingNotes.concat(noteDate)
+   await storeNotes(updatedNotes)
+   return redirect("/notes")
 }
 
 export function links() {

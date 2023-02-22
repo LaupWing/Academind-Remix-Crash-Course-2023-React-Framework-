@@ -57,7 +57,8 @@ export function CatchBoundary() {
 
    return (
       <main className="error">
-         <p>{message}</p>
+         <NewNote />
+         <p className="info-message">{message}</p>
       </main>
    )
 }
